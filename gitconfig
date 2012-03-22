@@ -1,0 +1,41 @@
+[github]
+	user =
+	token =
+[github "user"]
+	name =
+	email =
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    shortlog = auto
+
+[color "branch"]
+    current = yellow bold
+    local = yellow
+    remote = red
+
+    [color "diff"]
+    whitespace = green reverse
+
+[push]
+    default = tracking
+
+[merge]
+    tool = "xxdiff"
+
+[core]
+    # Horizontal scrolling that makes sense
+    pager = "less -FRSX -#5"
+
+    # Favourite editor
+    editor = vim
+
+[diff]
+    # Search for diff sections to allow n/N movement in less
+    pager = "less -FRSX -p '^diff.*'"
+[user]
+	name = Zi Li
+	email = macheala@gmail.com
