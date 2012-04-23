@@ -1,48 +1,43 @@
 " General settings
-syn on						" Syntax highlighting on. 
-set nocompatible			" Don't make vim behave like vi.
+set nocompatible            " Don't make vim behave like vi.
 set ruler                   " Show row/column position.
-set ai						" Auto-indent."
-set showmode				" Show INSERT, VISUAL, etc. XXX: i want to use different color for it.
-set bs=indent,start,eol		" Allow backspacing over everything in insert mode (except n & t).
-set shortmess=lnrxIT		" Get rid of splash screens.
-set pastetoggle=<F3>		" Allow F3 to toggle paste mode.
+set ai                      " Auto-indent."
+set showmode                " Show INSERT, VISUAL, etc. XXX: i want to use different color for it.
+set bs=indent,start,eol     " Allow backspacing over everything in insert mode (except n & t).
+set shortmess=lnrxIT        " Get rid of splash screens.
+set pastetoggle=<F3>        " Allow F3 to toggle paste mode.
 set laststatus=2            " Use an extra screen line to keep windows looking good
 " set clipboard=unnamed     " XXX: Doesn't work for me, ask Ian. :)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Swap and backups
-set directory=~/.vim/swap	" Set swp file dir.
-set backupdir=~/.vim/backup	" Set backup dir.
+set directory=~/.vim/swap   " Set swp file dir.
+set backupdir=~/.vim/backup " Set backup dir.
 
 " Mouse support
 set mouse=nv
 behave xterm
 
 " Indentation
-set tabstop=4				" Set tab width to be 4 spaces.
+set tabstop=4               " Set tab width to be 4 spaces.
 set shiftwidth=4 
 set autoindent
 set expandtab
 
 " Persistant undo between sessions (7.3 only)
 if has("undofile")
-	set undofile
-	set undodir=/tmp/vimundos
+    set undofile
+    set undodir=/tmp/vimundos
 endif
 
 " Search options
-set ignorecase				" Ignore case on searches.
-set smartcase				" Do case sensitive searches when search string contains capitals.
-set incsearch				" Search while typing
-set hlsearch				" Highlight search matches
-
-" Highlight current line.
-" hi CursorLine cterm=NONE ctermbg=235 guifg=DarkGrey
-" nnoremap <leader>h :set cursorline!<CR>
+set ignorecase              " Ignore case on searches.
+set smartcase               " Do case sensitive searches when search string contains capitals.
+set incsearch               " Search while typing
+set hlsearch                " Highlight search matches
 
 " Set right margin to 80
-set textwidth=80			" Unlimited line length by default.
+set textwidth=80            " Unlimited line length by default.
 if exists('+colorcolumn')
     set colorcolumn=81
     hi ColorColumn ctermbg=235 guibg=DarkGrey
@@ -88,22 +83,19 @@ filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
-set t_Co=256							" Force 256 color terminal. 
+syn on                      " Syntax highlighting on. 
+set t_Co=256                " Force 256 color terminal. 
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
     colo mustang
 catch
-    " Not sure whether I like this or not.
-    let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
-    let xterm16_brightness  = 'med'			" Low, med, high, or default (med).
-    color xterm16							" This is in ~/.vim/colors/xterm16.vim.
 endtry
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set file types.
-au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es	set filetype=javascript
-au BufNewFile,BufRead *.sco,*.orc,*.csd	set filetype=csound
+au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es  set filetype=javascript
+au BufNewFile,BufRead *.sco,*.orc,*.csd set filetype=csound
 au BufNewFile,BufRead *.mm set filetype=objc
 " Framestore filetypes.
 au BufRead,BufNewFile *.def set filetype=tcl
@@ -144,3 +136,4 @@ call pathogen#infect()
 " http://www.vim.org/scripts/script.php?script_id=3465
 " http://majutsushi.github.com/tagbar/
 nnoremap <silent> <F9> :TagbarToggle<CR>
+
