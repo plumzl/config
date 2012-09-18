@@ -1,41 +1,35 @@
 [github]
-	user =
-	token =
+	user = plumzl
+	token = 8c054f4252b76677741b07d64bccf42f
 [github "user"]
-	name =
-	email =
-
-[color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
-    shortlog = auto
-
-[color "branch"]
-    current = yellow bold
-    local = yellow
-    remote = red
-
-    [color "diff"]
-    whitespace = green reverse
-
-[push]
-    default = tracking
-
-[merge]
-    tool = "xxdiff"
-
-[core]
-    # Horizontal scrolling that makes sense
-    pager = "less -FRSX -#5"
-
-    # Favourite editor
-    editor = vim
-
-[diff]
-    # Search for diff sections to allow n/N movement in less
-    pager = "less -FRSX -p '^diff.*'"
-[user]
 	name = Zi Li
 	email = macheala@gmail.com
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	shortlog = auto
+
+[color "branch"]
+	current = yellow bold
+	local = yellow
+	remote = red
+
+[color "diff"]
+	whitespace = green reverse
+
+[push]
+	default = tracking
+
+[merge]
+	tool = "vimdiff3"
+
+[mergetool "vimdiff3"]
+	cmd = vim -f -d -c \"wincmd J \" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"+:0/<<<.*\\|===.*\\|>>>.*\"
+
+[alias]
+	ff  = pull --ff-only
+	l   = log --oneline
+	st  = status -s
