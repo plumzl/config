@@ -1,0 +1,1 @@
+/Users/zli/.bash/prompt.bash
