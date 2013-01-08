@@ -1,0 +1,41 @@
+# Always include the global inputrc file
+$include /etc/inputrc
+
+# do not bell on tab-completion
+set bell-style none
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# List all matches
+set show-all-if-ambiguous on
+
+# Don’t prompt unless there are over 300 possible completions
+set completion-query-items 300
+
+# Don't display common prefix
+set completion-prefix-display-length 0
+
+# Don't display hidden files unless requested
+set match-hidden-files off
+
+# Show autocomplete results at once
+set page-completions off
+
+# Completed names which are symbolic links to
+# directories have a slash appended.
+set mark-symlinked-directories on
+
+# Supported for bash 4 and above.
+set skip-completed-text on
+
+# For freebsd console
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[D": backward-word
+"\e[C": forward-word
+
+# In bash, make space expand things like !$
+$if Bash
+Space: magic-space
+$endif
