@@ -1,8 +1,8 @@
-source $HOME/.bash_aliases
-source $HOME/.bash/prompt.bash
+[[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
+[[ -f "$HOME/.bash/prompt.bash" ]] && source "$HOME/.bash/prompt.bash"
 
 export PATH="$HOME/bin:$PATH"
-# export PS1='\[\e[32m\]\h: \[\e[38;5;8m\]\w/\n\[\e[38;5;15m\]\$\[\e[38;5;7m\] '
+export PATH="$HOME/scripts:$PATH"
 export LSCOLORS="exGxadadcxbxbxdxdxbxex"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM function
