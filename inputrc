@@ -30,10 +30,12 @@ set mark-symlinked-directories on
 set skip-completed-text on
 
 # For freebsd console
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-"\e[D": backward-word
-"\e[C": forward-word
+#"\e[A": history-search-backward
+#"\e[B": history-search-forward
+#"\e[D": backward-word
+#"\e[C": forward-word
+"\e[1;5A": history-search-backward
+"\e[1;5B": history-search-forward
 
 # In bash, make space expand things like !$
 $if Bash
