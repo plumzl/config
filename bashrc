@@ -3,6 +3,6 @@
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
-export LSCOLORS="exGxadadcxbxbxdxdxbxex"
+export LSCOLORS="exgxfxdxcxfxFxFxbxexex"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM function
