@@ -14,9 +14,9 @@ function __prompt_git() {
 
 function __set_prompt() {
     local branch="\[\e[33m\]\$(__prompt_git)"
-    local job_info="\[\e[31m\]\$(__prompt_jobs Stopped) "
+    local job_info="\[\e[31m\]\$(__prompt_jobs Stopped)\[\e[m\] "
     job_info="$job_info\[\e[32m\]\$(__prompt_jobs Running)"
-    export PS1="\[\e[32m\]\h: \[\e[38;5;15m\]\w/ $branch $job_info\n\[\e[38;5;15m\]\$\[\e[38;5;7m\] "
+    export PS1="\[\e[32m\]\h: \[\e[38;5;15m\]\w/ $branch\[\e[m\] $job_info\[\e[m\]\n\[\e[38;5;15m\]\$\[\e[m\] "
 }
 
 __set_prompt
