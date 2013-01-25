@@ -78,7 +78,8 @@ set t_Co=256							" Force 256 color terminal.
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
-    colo mustang
+    set background=dark
+    colo solarized
 catch
     " Not sure whether I like this or not.
     let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
@@ -121,8 +122,6 @@ inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 
 " pathogen
 " Runtime path management.
-" http://www.vim.org/scripts/script.php?script_id=2332
-" https://github.com/tpope/vim-pathogen
 call pathogen#infect()
 
 " tagbar
