@@ -67,19 +67,13 @@ cmap w!! w !sudo tee >/dev/null %
 " Filetype setting
 filetype plugin indent on
 
-" Close vim if only a NERDTree is left
-autocmd bufenter * if (winnr("$") == 1 &&
-        \ exists("b:NERDTreeType") &&
-        \ b:NERDTreeType == "primary") | q | endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=256							" Force 256 color terminal. 
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
-    set background=dark
-    colo solarized
+    colo mustang 
 catch
     " Not sure whether I like this or not.
     let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
@@ -129,3 +123,12 @@ call pathogen#infect()
 " http://www.vim.org/scripts/script.php?script_id=3465
 " http://majutsushi.github.com/tagbar/
 nnoremap <silent> <F9> :TagbarToggle<CR>
+
+"NERDTree
+nnoremap <silent> <F4> :NERDTree<CR>
+" Close vim if only a NERDTree is left
+autocmd bufenter * if (winnr("$") == 1 &&
+        \ exists("b:NERDTreeType") &&
+        \ b:NERDTreeType == "primary") | q | endif
+
+
