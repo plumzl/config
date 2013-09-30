@@ -1,9 +1,5 @@
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	shortlog = auto
+	ui = true
 
 [color "branch"]
 	current = yellow bold
@@ -26,6 +22,10 @@
 	ff  = pull --ff-only
 	l   = log --oneline
 	st  = status -s
+    rbo = rebase --interactive origin/master
+    df = diff --check
 [user]
 	name = 
 	email = 
+[core]
+	editor = vim
