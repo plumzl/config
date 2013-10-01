@@ -8,6 +8,8 @@ set bs=indent,start,eol		" Allow backspacing over everything in insert mode (exc
 set shortmess=lnrxIT		" Get rid of splash screens.
 set pastetoggle=<F3>		" Allow F3 to toggle paste mode.
 set laststatus=2            " Use an extra screen line to keep windows looking good
+set clipboard=unnamedplus   " Works only for vim 7.3 and higher
+set wildmenu                " Command line completion
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Swap and backups
@@ -24,23 +26,30 @@ set shiftwidth=4
 set autoindent
 set expandtab
 
+" Persistant undo between sessions (7.3 only)
+if has("undofile")
+	set undofile
+	set undodir=/tmp/vimundos
+endif
+
 " Search options
 set ignorecase				" Ignore case on searches.
 set smartcase				" Do case sensitive searches when search string contains capitals.
 set incsearch				" Search while typing
 set hlsearch				" Highlight search matches
 
-" Source the .vimrc immediately after you save it.
-autocmd! bufwritepost .vimrc source %
 
-" Set right margin to 79 
-set textwidth=79			" Unlimited line length by default.
+" Set right margin to 80
+set textwidth=80			" Unlimited line length by default.
 au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
-au BufEnter * match OverLength /\%80v.*/
+au BufEnter * match OverLength /\%81v.*/
 
 " Folding
 set foldmethod=indent       " automatically fold by indent level
 set nofoldenable            " but have folds open by default
+
+" Source the .vimrc immediately after you save it.
+autocmd! bufwritepost .vimrc source %
 
 " Get the file under the cursor in a split
 map gf :sp <cfile><CR>
@@ -64,16 +73,13 @@ map - 5<C-W>-
 " Forgot to sudo before editing a file?
 cmap w!! w !sudo tee >/dev/null %
 
-" Filetype setting
-filetype plugin indent on
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=256							" Force 256 color terminal. 
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
-    colo mustang 
+    colo mustang
 catch
     " Not sure whether I like this or not.
     let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
@@ -82,10 +88,13 @@ catch
 endtry
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype setting
+filetype plugin indent on
 " Set file types.
 au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es	set filetype=javascript
 au BufNewFile,BufRead *.sco,*.orc,*.csd	set filetype=csound
 au BufNewFile,BufRead *.mm set filetype=objc
+au BufNewFile,BufRead *.module set filetype=tcl
 " Framestore filetypes.
 au BufRead,BufNewFile *.def set filetype=tcl
 au BufRead,BufNewFile *.sdl,*.jdl set filetype=fcdl
@@ -120,8 +129,6 @@ call pathogen#infect()
 
 " tagbar
 " Scoped tags with exuberant ctags.
-" http://www.vim.org/scripts/script.php?script_id=3465
-" http://majutsushi.github.com/tagbar/
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 "NERDTree
@@ -130,5 +137,4 @@ nnoremap <silent> <F4> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 &&
         \ exists("b:NERDTreeType") &&
         \ b:NERDTreeType == "primary") | q | endif
-
 
