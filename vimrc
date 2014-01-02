@@ -1,5 +1,5 @@
 " General settings
-syn on						" Syntax highlighting on. 
+syn on						" Syntax highlighting on.
 set nocompatible			" Don't make vim behave like vi.
 set ruler                   " Show row/column position.
 set ai						" Auto-indent."
@@ -22,7 +22,7 @@ behave xterm
 
 " Indentation
 set tabstop=4				" Set tab width to be 4 spaces.
-set shiftwidth=4 
+set shiftwidth=4
 set autoindent
 set expandtab
 
@@ -38,15 +38,14 @@ set smartcase				" Do case sensitive searches when search string contains capita
 set incsearch				" Search while typing
 set hlsearch				" Highlight search matches
 
-
 " Set right margin to 80
-set textwidth=80			" Unlimited line length by default.
+set textwidth=79			" Unlimited line length by default.
 if exists('+colorcolumn')
-    set colorcolumn=81
+    set colorcolumn=80
     hi ColorColumn ctermbg=235 guibg=DarkGrey
 else
     au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
-    au BufEnter * match OverLength /\%81v.*/
+    au BufEnter * match OverLength /\%80v.*/
 endif
 
 " Folding
@@ -71,6 +70,18 @@ endif
 "Ctrl-l to redraw the screen
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+"Highlight trailing spaces
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Delete all trailing whitespace
+nnoremap <leader>ds :%s/\s\+$//g<CR>
+
 " Easier way to increase / decrease the size of splits
 map + 5<C-W>+
 map - 5<C-W>-
@@ -80,11 +91,13 @@ cmap w!! w !sudo tee >/dev/null %
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
-set t_Co=256							" Force 256 color terminal. 
+set t_Co=256							" Force 256 color terminal.
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
-    colo mustang
+    let g:solarized_termcolors=256
+    set background=dark
+    colo solarized
 catch
     " Not sure whether I like this or not.
     let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
@@ -122,7 +135,7 @@ inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap [ []<Left>
 inoremap [<CR> [<CR>]<Esc>O
 inoremap [[ [
-inoremap [] [] 
+inoremap [] []
 inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
