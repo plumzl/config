@@ -89,6 +89,13 @@ map - 5<C-W>-
 " Forgot to sudo before editing a file?
 cmap w!! w !sudo tee >/dev/null %
 
+" Fix vim splits resize bug
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=256							" Force 256 color terminal.
