@@ -40,13 +40,8 @@ set hlsearch				" Highlight search matches
 
 " Set right margin to 80
 set textwidth=79			" Unlimited line length by default.
-if exists('+colorcolumn')
-    set colorcolumn=80
-    hi ColorColumn ctermbg=235 guibg=DarkGrey
-else
-    au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
-    au BufEnter * match OverLength /\%80v.*/
-endif
+au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
+au BufEnter * match OverLength /\%80v.*/
 
 " Folding
 set foldmethod=indent       " automatically fold by indent level
@@ -89,7 +84,7 @@ map - 5<C-W>-
 " Forgot to sudo before editing a file?
 cmap w!! w !sudo tee >/dev/null %
 
-" Fix vim splits resize bug
+" fix vim splits resize bug
 set mouse+=a
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
