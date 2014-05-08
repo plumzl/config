@@ -17,7 +17,7 @@ set directory=~/.vim/swap	" Set swp file dir.
 set backupdir=~/.vim/backup	" Set backup dir.
 
 " Mouse support
-set mouse=nv
+set mouse=a
 behave xterm
 
 " Indentation
@@ -58,7 +58,7 @@ let mapleader=','
 
 " Spell check
 if has("spell")
-    set spelllang=en_nz
+    set spelllang=en_us
     nnoremap <leader>s :set spell!<CR>
 endif
 
@@ -84,8 +84,7 @@ map - 5<C-W>-
 " Forgot to sudo before editing a file?
 cmap w!! w !sudo tee >/dev/null %
 
-" fix vim splits resize bug
-set mouse+=a
+" Fix vim splits resize bug
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
@@ -97,7 +96,7 @@ set t_Co=256							" Force 256 color terminal.
 " BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
 " any of those machines.
 try
-    let g:solarized_termcolors=256
+    "let g:solarized_termcolors=256
     set background=dark
     colo solarized
 catch
