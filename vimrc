@@ -40,8 +40,13 @@ set hlsearch				" Highlight search matches
 
 " Set right margin to 80
 set textwidth=79			" Unlimited line length by default.
-au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
-au BufEnter * match OverLength /\%80v.*/
+if exists('+colorcolumn')
+    set colorcolumn=80
+    hi ColorColumn ctermbg=235 guibg=DarkGrey
+else
+    au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
+    au BufEnter * match OverLength /\%80v.*/
+endif
 
 " Folding
 set foldmethod=indent       " automatically fold by indent level
@@ -89,6 +94,11 @@ if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
+
+" Vim tabs
+map <LEADER>t <Esc>:tabnew
+nmap tp :tabprevious<CR>
+nmap tn :tabnext<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
@@ -151,7 +161,7 @@ call pathogen#infect()
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 "NERDTree
-nnoremap <silent> <F4> :NERDTree<CR>
+nnoremap <silent> <F4> :NERDTreeToggle<CR>
 " Close vim if only a NERDTree is left
 autocmd bufenter * if (winnr("$") == 1 &&
         \ exists("b:NERDTreeType") &&
