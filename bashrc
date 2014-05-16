@@ -22,7 +22,3 @@ export PDSH_RCMD_TYPE=ssh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# MacPorts Installer addition on 2013-01-21_at_01:12:04: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
