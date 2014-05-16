@@ -5,3 +5,7 @@ if [[ $platform == 'Linux' ]]; then
 elif [[ $platform == 'Darwin' ]]; then
     alias ls='ls -G'
 fi
+
+alias rgrep="grep -RIn --exclude-dir=.git"
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
