@@ -3,6 +3,7 @@ platform=`uname`
 
 [[ -f "$HOME/.bash/aliases.bash" ]] && source "$HOME/.bash/aliases.bash"
 [[ -f "$HOME/.bash/prompt.bash" ]] && source "$HOME/.bash/prompt.bash"
+[[ -f "$HOME/.bash/color.bash" ]] && source "$HOME/.bash/color.bash"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
