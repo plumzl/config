@@ -124,6 +124,7 @@ au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es	set filetype=javascript
 au BufNewFile,BufRead *.sco,*.orc,*.csd	set filetype=csound
 au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.module set filetype=tcl
+au BufNewFile,BufRead *.scala set filetype=scala
 " Framestore filetypes.
 au BufRead,BufNewFile *.def set filetype=tcl
 au BufRead,BufNewFile *.sdl,*.jdl set filetype=fcdl
