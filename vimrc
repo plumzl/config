@@ -42,7 +42,7 @@ set hlsearch				" Highlight search matches
 set textwidth=79			" Unlimited line length by default.
 if exists('+colorcolumn')
     set colorcolumn=80
-    hi ColorColumn ctermbg=235 guibg=DarkGrey
+    hi ColorColumn ctermbg=DarkGrey guibg=DarkGrey
 else
     au BufEnter * highlight OverLength ctermbg=235 guibg=DarkGrey
     au BufEnter * match OverLength /\%80v.*/
@@ -101,20 +101,29 @@ nmap tp :tabprevious<CR>
 nmap tn :tabnext<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+
+" pathogen
+" Runtime path management.
+call pathogen#infect()
+
+" tagbar
+" Scoped tags with exuberant ctags.
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+"NERDTree
+nnoremap <silent> <F4> :NERDTreeToggle<CR>
+" Close vim if only a NERDTree is left
+autocmd bufenter * if (winnr("$") == 1 &&
+        \ exists("b:NERDTreeType") &&
+        \ b:NERDTreeType == "primary") | q | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=256							" Force 256 color terminal.
-" BREAKS COMPLETELY ON VERSIONS OLDER THAN 7.0. Luckily I don't need to work on
-" any of those machines.
-try
-    "let g:solarized_termcolors=256
-    set background=dark
-    colo solarized
-catch
-    " Not sure whether I like this or not.
-    let xterm16_colormap    = 'allblue'		" Allblue, soft, softlight, standard.
-    let xterm16_brightness  = 'med'			" Low, med, high, or default (med).
-    color xterm16							" This is in ~/.vim/colors/xterm16.vim.
-endtry
+"let g:solarized_termcolors=256
+set background=dark
+colo solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype setting
@@ -149,22 +158,4 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap [[ [
 inoremap [] []
 inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-
-" pathogen
-" Runtime path management.
-call pathogen#infect()
-
-" tagbar
-" Scoped tags with exuberant ctags.
-nnoremap <silent> <F9> :TagbarToggle<CR>
-
-"NERDTree
-nnoremap <silent> <F4> :NERDTreeToggle<CR>
-" Close vim if only a NERDTree is left
-autocmd bufenter * if (winnr("$") == 1 &&
-        \ exists("b:NERDTreeType") &&
-        \ b:NERDTreeType == "primary") | q | endif
 
