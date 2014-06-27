@@ -1,9 +1,11 @@
 # Get the platform
 platform=`uname`
 
-[[ -f "$HOME/.bash/aliases.bash" ]] && source "$HOME/.bash/aliases.bash"
-[[ -f "$HOME/.bash/prompt.bash" ]] && source "$HOME/.bash/prompt.bash"
-[[ -f "$HOME/.bash/color.bash" ]] && source "$HOME/.bash/color.bash"
+# Source sub bash scripts
+for file in `ls -d $HOME/.bash/*`
+do
+    source $file
+done
 
 # PATH
 export PATH="$HOME/bin:$PATH"
