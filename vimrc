@@ -132,8 +132,8 @@ inoremap <expr> l pumvisible() ? "\<PageDown>\<C-n>\<C-p>" : "l"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
-set t_Co=256							" Force 256 color terminal.
-"let g:solarized_termcolors=256
+set t_Co=16							" Force 16 color terminal.
+"let g:solarized_termcolors=256     " Useful when use terminals not configurated with solarized color
 set background=dark
 colo solarized
 
