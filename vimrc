@@ -86,11 +86,11 @@ nnoremap <leader>ds :%s/\s\+$//g<CR>
 map + 5<C-W>+
 map - 5<C-W>-
 
-" Navigate vim window splits
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+" Navigate vim window splits for gnome-terminal
+nnoremap <silent> <Esc>k :wincmd k<CR>
+nnoremap <silent> <Esc>j :wincmd j<CR>
+nnoremap <silent> <Esc>h :wincmd h<CR>
+nnoremap <silent> <Esc>l :wincmd l<CR>
 
 " Forgot to sudo before editing a file?
 cmap w!! w !sudo tee >/dev/null %
