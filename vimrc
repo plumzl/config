@@ -124,6 +124,12 @@ autocmd bufenter * if (winnr("$") == 1 &&
         \ exists("b:NERDTreeType") &&
         \ b:NERDTreeType == "primary") | q | endif
 
+" Supertab
+inoremap <expr> j pumvisible() ? "\<C-n>" : "j"
+inoremap <expr> k pumvisible() ? "\<C-p>" : "k"
+inoremap <expr> h pumvisible() ? "\<PageUp>\<C-n>\<C-p>" : "h"
+inoremap <expr> l pumvisible() ? "\<PageDown>\<C-n>\<C-p>" : "l"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=256							" Force 256 color terminal.
