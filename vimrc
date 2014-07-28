@@ -106,6 +106,9 @@ map <LEADER>t <Esc>:tabnew
 nmap tp :tabprevious<CR>
 nmap tn :tabnext<CR>
 
+
+" ctags
+set tags=./tags;/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
@@ -116,6 +119,7 @@ call pathogen#infect()
 " tagbar
 " Scoped tags with exuberant ctags.
 nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_sort = "Order"
 
 "NERDTree
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
@@ -142,14 +146,8 @@ colo solarized
 filetype plugin indent on
 " Set file types.
 au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es	set filetype=javascript
-au BufNewFile,BufRead *.sco,*.orc,*.csd	set filetype=csound
-au BufNewFile,BufRead *.mm set filetype=objc
 au BufNewFile,BufRead *.module set filetype=tcl
 au BufNewFile,BufRead *.scala set filetype=scala
-" Framestore filetypes.
-au BufRead,BufNewFile *.def set filetype=tcl
-au BufRead,BufNewFile *.sdl,*.jdl set filetype=fcdl
-au BufRead,BufNewFile *.ma set filetype=mel
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto-close brackets
