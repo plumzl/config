@@ -127,6 +127,7 @@ nnoremap <silent> <F4> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 &&
         \ exists("b:NERDTreeType") &&
         \ b:NERDTreeType == "primary") | q | endif
+let NERDTreeIgnore=['\~$', '\.pyc$']
 
 " Supertab
 inoremap <expr> j pumvisible() ? "\<C-n>" : "j"
@@ -152,6 +153,7 @@ filetype plugin indent on
 au BufNewFile,BufRead *.js,*.jsx,*.javascript,*.es	set filetype=javascript
 au BufNewFile,BufRead *.module set filetype=tcl
 au BufNewFile,BufRead *.scala set filetype=scala
+au BufNewFile,BufRead *.jinja set filetype=jinja
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto-close brackets
