@@ -134,6 +134,10 @@ inoremap <expr> k pumvisible() ? "\<C-p>" : "k"
 inoremap <expr> h pumvisible() ? "\<PageUp>\<C-n>\<C-p>" : "h"
 inoremap <expr> l pumvisible() ? "\<PageDown>\<C-n>\<C-p>" : "l"
 
+" Gitgutter
+nnoremap <silent> <F5> :GitGutterToggle<CR>
+set updatetime=750
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color scheme
 set t_Co=16							" Force 16 color terminal.
