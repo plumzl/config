@@ -4,7 +4,7 @@ function __prompt_jobs() {
 }
 
 function __prompt_git() {
-    branch="$(git symbolic-ref HEAD 2>/dev/null)" || branch="" 
+    branch="$(git symbolic-ref HEAD 2>/dev/null)" || branch="$(git reflog 2>/dev/null | head -n 1 | awk -F' ' '{ print $1 }')"
     branch=${branch##refs/heads/}
     if [ -n "$branch" ]; then
         branch=[$branch]
