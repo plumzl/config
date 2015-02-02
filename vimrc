@@ -59,7 +59,7 @@ autocmd! bufwritepost .vimrc source %
 map gf :sp <cfile><CR>
 
 " Set <leader> to ',' (comma).
-let mapleader=','
+let mapleader=';'
 
 " Spell check
 if has("spell")
@@ -85,6 +85,11 @@ nnoremap <leader>ds :%s/\s\+$//g<CR>
 " Easier way to increase / decrease the size of splits
 map + 5<C-W>+
 map - 5<C-W>-
+
+" Maximize current window vertically or horizontally
+set wmh=0 " Set minimum split size
+set wmw=0 " Set minimum vsplit size
+map <leader>z <C-W>\|<C-W>_
 
 " Navigate vim window splits for gnome-terminal
 nnoremap <silent> <Esc>k :wincmd k<CR>
