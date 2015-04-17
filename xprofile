@@ -1,0 +1,11 @@
+(conky | while read LINE; do xsetroot -name "$LINE"; done) &
+
+xmodmap ~/.Xmodmap
+
+setxkbmap -layout gb
+
+xset r rate 250 50
+
+xrandr --output VGA1 --auto --right-of DP1
+
+exec dwm
