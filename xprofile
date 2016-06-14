@@ -1,11 +1,15 @@
 (conky | while read LINE; do xsetroot -name "$LINE"; done) &
 
+xrdb -merge ~/.Xresources
+
 xmodmap ~/.Xmodmap
 
 setxkbmap -layout gb
 
-xset r rate 250 50
+xset r rate 180 50
 
 xrandr --output VGA1 --auto --right-of DP1
+
+/usr/bin/xscreensaver -no-splash &
 
 exec dwm

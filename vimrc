@@ -70,6 +70,9 @@ endif
 "Ctrl-l to redraw the screen
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" map / to /\v
+nnoremap / /\v
+
 "Highlight trailing spaces
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
