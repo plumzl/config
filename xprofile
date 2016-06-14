@@ -2,6 +2,8 @@
 
 xrdb -merge ~/.Xresources
 
+xsetroot -solid black
+
 xmodmap ~/.Xmodmap
 
 setxkbmap -layout gb
